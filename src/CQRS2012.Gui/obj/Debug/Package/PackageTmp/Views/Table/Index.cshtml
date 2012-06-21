@@ -1,0 +1,151 @@
+﻿@using CQRS2012.Gui.Models
+
+@model IEnumerable<CQRS2012.Gui.ViewModels.GamesWithBetsViewModel>
+           
+@{
+    ViewBag.Title = "Tabela";
+}
+
+<table id="tableRanking">
+    <tbody>
+        <tr class="header-row">
+            @Users("rotate1")
+        </tr>
+        <tr>
+            @UsersPositionAndTotalScore()
+        </tr>
+        @foreach (var game in ViewBag.Games)
+        {
+            <tr>
+                <td class="cell-game">
+                    @if (@game.IsScoreMultiplier)
+                    { <img src="../../Content/Images/x2.png" title="Punkty x2" class="multiplier-icon-small" /> }
+                    <span>@game.HomeTeam.Name - @game.GuestTeam.Name</span>
+                </td>
+                <td class="cell-real-result">
+                    @GameResult(@game.Result)
+                </td>
+                @foreach (var item in ViewBag.Data)
+                {
+                    var bet = @item.Value[@game];
+                    var userName = @item.Key;                
+                
+                    <td class="cell-results @SetCellColor(@bet)">
+                        @UserScoreAndBet(@game, @userName, @bet)
+                    </td>  
+                }
+            </tr>
+        }
+        <tr>
+            @UsersPositionAndTotalScore()
+        </tr>
+        <tr class="header-row">
+            @Users("rotate2")
+        </tr>
+    </tbody>
+</table>
+
+
+@helper Users(string rotateClass)
+{
+    var cssRandomerClass = "randomer-color";
+    
+    <th style="background: none !important">
+    </th>
+    <th style="background: none !important">
+    </th>
+    foreach (var user in ViewBag.Users)
+    {
+        cssRandomerClass = (user == "randomer") ? "randomer-color" : "";
+        <th class="col-user-name">
+        @if (@user == HttpContext.Current.User.Identity.Name)
+        {      
+            <span class="header-vertical mark-me @rotateClass">@user</span>
+        }
+        else
+        {
+            <span class="header-vertical @rotateClass @cssRandomerClass">@user</span>
+        }
+        </th>
+    }
+}
+
+@helper UsersPositionAndTotalScore()
+{
+    var cssPositionColorClass = "default-position-color";
+          
+    <td style="background: none !important">
+    </td>
+    <td>
+    </td>
+        foreach (var user in ViewBag.Users)
+        {
+            <td class="user-position">
+                @if (@ViewBag.UsersWithPosition.ContainsKey(user))
+                {
+                    if (@ViewBag.UsersWithPosition[user].Position == 1) { cssPositionColorClass = "first-position-color"; }
+                    else if (@ViewBag.UsersWithPosition[user].Position == 2) { cssPositionColorClass = "second-position-color"; }
+                    else if (@ViewBag.UsersWithPosition[user].Position == 3) { cssPositionColorClass = "third-position-color"; }
+                    else if (@ViewBag.UsersWithPosition[user].Position == @ViewBag.LastPosition) { cssPositionColorClass = "last-position-color"; }
+                    else { cssPositionColorClass = "default-position-color"; }
+               
+                    <span class="position @cssPositionColorClass" title="Miejsce @ViewBag.UsersWithPosition[user].Position">@ViewBag.UsersWithPosition[user].Position</span>  
+                    <span class="total-score" title="Suma punktów">@ViewBag.UsersWithPosition[user].TotalScore</span>
+                }
+                else
+                {
+                    <span class="position" title="Miejsce"></span> 
+                    <span class="total-score" title="Suma punktów"></span>
+                }
+            </td>
+        }
+}
+@helper GameResult(Result result)
+{
+    if (@result != null)
+    { 
+        <span>@result.HomeGoals:@result.GuestGoals</span> 
+    }
+    else
+    { 
+        <span></span> 
+    } 
+}
+
+@helper SetCellColor(Bet bet)
+{
+    var cssclass = "";
+    if (@bet == null) { cssclass = "score-empty-cell-color"; }
+    else if (@bet.Score == 1 || (@bet.Score == 2 && @bet.Game.IsScoreMultiplier)) { cssclass = "score1-cell-color"; }
+    else if (@bet.Score == 2 || (@bet.Score == 4 && @bet.Game.IsScoreMultiplier)) { cssclass = "score2-cell-color"; }
+    else if (@bet.Score == 3 || (@bet.Score == 6 && @bet.Game.IsScoreMultiplier)) { cssclass = "score3-cell-color"; }
+    else { cssclass = "score0-cell-color"; }
+    
+    @cssclass
+}
+
+@helper UserScoreAndBet(Game game, string userName, Bet bet)
+{
+    if (@bet == null)
+    {
+        <span></span>
+    }
+    else if (ViewBag.CanBetGame[@game])
+    {
+        if (@userName == HttpContext.Current.User.Identity.Name)
+        {               
+            <span class="score"></span>
+            <span class="my-type">@bet.Result.HomeGoals:@bet.Result.GuestGoals</span>              
+        }
+    }
+    else if (!@game.IsFinished)
+    {         
+        <span class="score"></span>
+        <span class="my-type">@bet.Result.HomeGoals:@bet.Result.GuestGoals</span>           
+    }
+    else
+    {         
+        <span class="score">@bet.Score</span>
+        <span class="my-type">@bet.Result.HomeGoals:@bet.Result.GuestGoals</span> 
+    }
+}

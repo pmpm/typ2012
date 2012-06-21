@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CQRS2012.Gui.Models.Comment>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="comment-inputs">
+@using (Ajax.BeginForm("AddMessage", "Shoutbox", new AjaxOptions() { OnComplete = "ClearForm", UpdateTargetId = "messages" }))
+{    
+    @Html.TextArea("Message", "", new {id = "text_box_comment", maxlength = 100,Rows= 2})
+    <input type="submit"  value="Wyślij" />   
+} 
+</div>
+
+
+<div  id="messages" >
+    @{Html.RenderPartial("Messages", Model);}
+</div>
+

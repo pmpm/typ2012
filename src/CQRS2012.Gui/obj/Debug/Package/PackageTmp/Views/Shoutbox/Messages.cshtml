@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CQRS2012.Gui.Models.Comment>
+   
+<table>
+@foreach(var item in Model)
+{
+   
+   
+    <tr> 
+     <td class="comment-date-cell">
+                        <div class="comment-header">                  
+                            <div class="comment-time">@item.TimeStamp.ToString("t")</div>
+                            <div class="comment-day">@item.TimeStamp.Day @item.TimeStamp.ToString("MMM")</div>
+                        </div>
+      </td>
+      <td>
+        <span class="marked_link">@item.UserName </span> 
+        <div class="comment-body">@item.Content</div>
+        <br />
+    </td>
+    </tr>
+}
+</table>  
+  

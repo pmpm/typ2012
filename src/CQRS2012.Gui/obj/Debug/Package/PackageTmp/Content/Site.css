@@ -1,0 +1,1206 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background: #5db133;
+    font-size: .85em;
+    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+a:link
+{
+    color: green;
+    text-decoration: underline;
+}
+
+a:visited
+{
+    color: green;
+}
+
+a:hover
+{
+    color: #8af350;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #12eb87;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+header, footer, nav, section
+{
+    display: block;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2
+{
+    padding: 0 0 10px 0;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+}
+
+header, #header
+{
+    background: #baf66d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #baf66d 0%, #baf66d 16%, #88bf40 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#baf66d), color-stop(16%,#baf66d), color-stop(100%,#88bf40)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #baf66d 0%,#baf66d 16%,#88bf40 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #baf66d 0%,#baf66d 16%,#88bf40 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #baf66d 0%,#baf66d 16%,#88bf40 100%); /* IE10+ */
+    background: linear-gradient(top,  #baf66d 0%,#baf66d 16%,#88bf40 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#baf66d', endColorstr='#88bf40',GradientType=0 ); /* IE6-9 */
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+  
+}
+
+header h1, #header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+    text-shadow: 1px 1px 2px #111;
+}
+
+#main
+{
+    min-height: 500px;
+    overflow: auto;
+    padding: 30px 30px 15px 30px;
+    background: #a3d252; /* Old browsers */
+    background: -moz-linear-gradient(top,  #a3d252 0%, #5db133 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a3d252), color-stop(100%,#5db133)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #a3d252 0%,#5db133 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #a3d252 0%,#5db133 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #a3d252 0%,#5db133 100%); /* IE10+ */
+    background: linear-gradient(top,  #a3d252 0%,#5db133 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3d252', endColorstr='#5db133',GradientType=0 ); /* IE6-9 */
+}
+
+#content
+{
+    width: 800px;
+    margin: 0px auto;
+}
+
+
+
+footer, #footer
+{
+    background-color: #fff;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0 0 30px 0;
+    font-size: .9em;
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu
+{
+    padding: 0 0 0px;
+    position: relative;
+    margin:0 0 0 90px;   
+
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.0em;
+    background-color: #7eb637;
+    color: #4d613c;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+   
+}
+
+ul#menu li a:hover
+{
+    background-color: #88c040;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #A3D252;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #A3D252;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+form {
+    width: 250px;
+    padding: 20px;
+    margin: 0 auto;
+    /*** Adding in CSS3 ***/
+ 
+    /*** Rounded Corners ***/
+   /* -moz-border-radius: 5px;
+    -webkit-border-radius:5px;*/
+}
+
+input {
+    width: 230px;
+    background:rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    margin-bottom: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+input:hover {
+    -webkit-box-shadow: 0px 0px 4px #000;
+    background:rgba(0, 0, 0, 0.2);
+}
+
+input[type="checkbox"]
+{
+    display:inline;
+    width:auto;
+}
+
+input[type="submit"] {
+    width: auto;
+    color: #fff;
+    text-transform: uppercase;  
+    border-top: 1px solid #8af350;
+    margin-top: 10px;
+ 
+    /*** Adding CSS3 Gradients ***/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8af350), to(#379A01));
+    background: -moz-linear-gradient(19% 75% 90deg, #379A01, #8af350);
+    opacity:0.8;
+}
+
+input[type="submit"]:hover
+{
+    opacity:1;
+}
+
+/*
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea
+{
+    min-height: 75px;
+}
+
+input[type="text"], input[type="password"]
+{
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select
+{
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"]
+{
+    font-size: 1.2em;
+    padding: 5px;
+}*/
+
+/* TABLE
+----------------------------------------------------------*/
+/*
+table
+{
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table td
+{
+    padding: 5px;
+    border: solid 1px #e8eef4;
+}
+
+table th
+{
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #e8eef4;
+    border: solid 1px #e8eef4;
+}
+*/
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color: Red;
+}
+
+nav, #menucontainer
+{
+margin: 0 auto;
+width: 680px;
+left: 20px;
+margin-top: -77px;
+padding-left: 100px;
+height: 119px;
+}
+
+#header .title-info
+{
+    margin: 0 auto;
+    width: 300px;
+}
+
+#header .title-info h2, #header .title-info h3
+{
+
+}
+
+#header .title-info h2
+{
+    font-size: 1.4em;
+    line-height: 0;
+    color:#e9fdc2;
+}
+
+#header .title-info h3
+{
+    font-size: 0.9em;
+    line-height: 0;
+    color:#596F47;
+}
+
+#header .title-img
+{
+    
+}
+
+#header .title-img img
+{
+    width: 80px; 
+}
+#menucontainer img
+{
+    left: -5px;
+    position: relative;
+    top: 28px;
+    width: 85px;
+}
+
+#title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    height: 0px;
+}
+
+#title img
+{
+
+}
+
+#logindisplay
+{
+    font-size: 1.0em;
+    display: block;
+    text-align: right;
+    color: whiteSmoke;
+}
+
+#logindisplay a:link
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label
+{
+    margin: 1em 0 0 0;
+}
+
+.display-field, .editor-field
+{
+    margin: 0.5em 0 0 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+/* Styles for game editor - my style
+----------------------------------------------------------*/
+.games-list
+{
+    list-style: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.games-date-block, .games-table tr
+{
+    background-color: rgba(66, 159, 42, 0.3);
+    border: 1px solid rgba(66, 159, 42, 0.6);
+}
+
+.games-table
+{
+    width: 320px;
+}
+
+.games-table td
+{
+    border: none;
+}
+
+
+.games-date-block
+{
+    margin-bottom: 2px;
+    padding-left: 10px;
+    text-align: center;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+}
+
+.games-by-date-block
+{
+    margin: 10px;
+    width: 320px;
+    min-height: 90px;
+    float: left;
+}
+
+.hometeam-block
+{
+    text-align: right;
+}
+
+.guestteam-block
+{
+}
+
+.hometeam-block, .guestteam-block
+{
+}
+
+.result-block
+{
+    text-align: center;
+    width: 60px;
+}
+
+#HomeGoals, #GuestGoals
+{
+    width: 20px;
+}
+
+.button-type-cell
+{
+    width: 50px;
+}
+
+#main-ranking
+{
+    list-style: none;
+    margin: 0px auto;
+    width: 300px;
+}
+
+#main-ranking li
+{
+}
+
+#main-ranking li div
+{
+    display: table;
+}
+
+#main-ranking li div div
+{
+    display: table-cell;
+    padding-right: 10px;
+    text-align: right;
+    width: 60px;
+}
+
+#main-ranking li div div + div
+{
+    text-align: left;
+}
+
+#main-ranking li span.score
+{
+    color: Yellow;
+}
+
+#main-ranking li span.user-name
+{
+    color: green;
+    padding-right:40px;
+}
+
+#gamesTable
+{
+    /* border: none;*/
+    font-family: Verdana;
+    margin: 0px auto;
+}
+
+#gamesTable td
+{
+    border: none;
+}
+
+#gamesTable .date
+{
+    font-size: 12px;
+}
+
+#gamesTable .team
+{
+    color: #468B18;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+#gamesTable .homeTeam-align
+{
+    text-align: right;
+}
+
+#gamesTable .guestTeam-align
+{
+    text-align: left;
+}
+
+#gamesTable tr
+{
+    padding-bottom: 15px;
+}
+
+#gamesTable .result
+{
+}
+
+.not-active
+{
+    opacity:0.5;
+}
+
+#gamesTable .result div
+{
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    height: 40px;
+    min-width:51px;
+    padding-bottom: 2px;
+    
+}
+
+#gamesTable .result table
+{
+    border: none;
+    margin: 0px auto;
+}
+
+#gamesTable .result table.before-finished
+{
+    margin-top:4px;
+}
+    
+#gamesTable .result table.before-finished td
+{
+    font-size: 20px;
+}
+
+#gamesTable .result table th
+{
+    font-size: 29px;
+    color: #d5ec13;
+    font-weight: normal;
+}
+
+#gamesTable .result table td
+{
+    font-size: 13px;
+    font-weight: bold;
+    color: #9afa53;
+}
+
+.game-finished
+{
+    background-color: #2F702B;
+    border-color: #246B1F;
+}
+
+.game-not-finished
+{
+    background-color: #2f702b;
+    border-color: #246b1f;
+}
+
+.game-not-finished:hover
+{
+    background:darkgreen;
+}
+
+.bet-blocked
+{
+    background-color: SeaGreen;
+    border-color: green;
+    color:LightGreen !important;
+}
+.bet-blocked span
+{
+    color:LightGreen !important;
+}
+
+.questionMark
+{
+    color:#4b982d;
+}
+
+/** dateformat **/
+
+.postdate
+{
+    color: #B6DF70;
+    float: left;
+    font-size: 17px;
+    font-weight: bold;
+    height: 55px;
+    position: relative;
+    width: 67px;
+}
+.dayOfWeek, .day, .time, .month
+{
+    position: absolute;
+    text-indent: 00em;
+    background-repeat: no-repeat;
+}
+.dayOfWeek
+{
+    height: 24px;
+    left: 0;
+    text-align: center;
+    top: 2px;
+    width: 40px;
+}
+.day
+{
+    height: 25px;
+    left: 0;
+    text-align: center;
+    top: 20px;
+    width: 40px;
+}
+.month
+{
+    font-size: 9px;
+    height: 25px;
+    left: 0;
+    text-align: center;
+    top: 40px;
+    width: 55px;
+}
+.time
+{
+    bottom: 0;
+    font-size: 10px;
+    height: 48px;
+    right: 0;
+    width: 17px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(90deg);
+}
+
+/* ****************** */
+
+/* inline editor */
+.inline-edit
+{
+    cursor: pointer;
+}
+
+.inline-edit a 
+{
+    display:none;
+}
+
+.inlineEditor
+{
+display: block;
+position: absolute;
+width: 51px;
+height: 42px;
+background: #28CB20;
+margin-top: -7px;
+margin-left: -25px;
+  cursor: default;
+padding:0px;
+}
+
+.inlineEditor input
+{
+    font-size: 12px;
+    width:18px;
+padding: 0px;
+    position: relative;
+    top: -3px;
+    background: #28CB20;
+border: 1px solid #55E84D;
+color: #9AFA53;
+font-weight: bold;
+text-align:center;
+margin-bottom: 0px;
+}
+
+.inlineEditor  .home-goals
+{
+ margin-left: 3px;
+}
+
+.inlineEditor  .guest-goals
+{
+
+}
+
+.inlineEditor button[type="submit"]
+{
+width: 51px;
+margin-top: 0px;
+border: 1px solid grey;
+background: none;
+border-top-color: green;
+border-width: 1px 0px 0px 0px;
+    font-size: 11px;
+    position: relative;
+    top: -8px;
+    color:#9AFA53;
+font-weight: bold;
+font-style: italic;
+}
+
+
+
+.inlineEditor button[type="submit"]:hover
+{
+    background: #418924;
+}
+
+.inlineEditor button[type="cancel"]
+{
+    top: 25px;
+position: relative;
+left: -88px;
+}
+
+/* *********** tableRanking ************* */
+#tableRanking
+{
+    border-collapse: separate;
+    border-spacing: 1px;
+    margin: 0 auto;
+}
+
+#tableRanking tbody
+{
+}
+
+#tableRanking span.rotate1
+{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    margin-top: 35px;
+}
+
+#tableRanking span.rotate2
+{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    margin-bottom: 30px;
+}
+
+#tableRanking span.header-vertical
+{
+
+    display: block;
+
+    width: 30px;
+    color: green;
+    margin-left: 4px;
+}
+span.mark-me
+{
+    color:chocolate !important;
+}
+
+#tableRanking  th.col-user-name
+{
+    height: 80px;
+}
+
+#tableRanking  tr.header-row:hover
+{
+    background-color:transparent !important;
+}
+
+#tableRanking td.cell-game
+{
+    padding:5px;
+    color:#468B18 ;
+    font-size:12px;
+    font-weight: bold;
+    background:transparent !important;
+    text-align:right;
+}
+
+#tableRanking td.cell-game:hover
+{
+    background-color:transparent !important;
+}
+
+#tableRanking td.cell-results
+{   
+    border: 1px solid transparent;
+    font-size: 11px;
+    padding: 2px; 
+}
+#tableRanking td.cell-real-result
+{
+    text-align:center;
+        color: #9AFA53;
+    font-weight: bold;
+    background:#2F702B  !important;
+        border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#246B1F;
+    min-width: 25px;
+}
+
+#tableRanking table
+{
+    border-collapse: separate;
+}
+
+#tableRanking table td
+{
+    line-height: 11px;
+}
+
+#tableRanking td span.score
+{
+    color: #E9FDC2;
+    display: block;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#tableRanking td span.my-type
+{
+    display: block;
+    float: right;
+    margin-top: 1px;
+    text-align: center;
+    width: 30px;
+      color: #4D613C;
+}
+
+.colhover, #tableRanking tbody tr:hover
+{
+    background-color:rgba(170,216,97,0.7) !important;
+}
+
+
+ #tableRanking tbody table tr:hover
+ {
+     background:transparent !important;
+ }
+ 
+ td.click
+ {
+     /*background:rgba(11, 111, 111, 0.2) !important;*/
+     background:#aad861  !important;
+ }
+ 
+ th.click
+{
+    background:transparent;
+}
+
+td.user-position
+{  
+    
+}
+
+td.user-position span.position
+{
+    background-attachment: scroll !important;
+    background-clip: border-box !important;   
+    background-image: none !important;
+    background-origin: padding-box !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+    background-size: auto auto !important;
+    
+    border-radius: 20px 20px 20px 20px;
+    border-style: solid;
+    border-width: 1px;
+    color: transparent;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    font-weight:bold;
+}
+
+span.default-position-color
+{
+    background-color: yellowgreen;
+     border-color: transparent;
+     box-shadow: inset 1px 2px 6px whitesmoke;
+}
+span.first-position-color
+{
+     background-color: gold;
+     border-color: transparent;
+     box-shadow:inset 1px 2px 6px white;
+}
+span.second-position-color
+{
+     background-color:InactiveCaption;/*lavander*/
+     border-color: transparent;
+     box-shadow: inset 1px 2px 6px white;
+}
+span.third-position-color
+{
+     background-color: SaddleBrown;
+     border-color: transparent;
+     box-shadow: inset 1px 2px 6px BurlyWood;
+}
+span.last-position-color
+{
+    background-color: MediumSeaGreen;
+    border-color: transparent;
+    box-shadow: 1px 2px 6px Aquamarine inset;
+}
+
+.score-empty-cell-color
+{
+    background-color: rgba(0, 0, 0, 0.05);;
+}
+
+.score0-cell-color
+{
+    background-color:  rgba(0, 0, 0, 0.06);
+}
+.score1-cell-color
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.score2-cell-color
+{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.score3-cell-color
+{
+    background-color: rgba(0, 0, 0, 0.23) ;
+}
+
+td.user-position span.total-score
+{
+    background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-image: none !important;
+    background-origin: padding-box !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+    background-size: auto auto !important;
+    border-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #E9FDC2;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    width: 16px;
+     height: 16px;
+}
+
+.randomer-color
+{
+    color:gray !important;
+}
+
+#comment-inputs form
+{
+    width:400px;
+}
+
+#comment-inputs
+{
+}
+
+#comment-inputs textarea
+{
+    width:400px;
+     border: 1px solid rgba(0, 0, 0, 0.1);
+     background-color: rgba(0, 0, 0, 0.1);
+     min-width:400px;
+     max-width:600px;
+     min-height:32px;
+  
+}
+
+#comment-inputs input[type="submit"]
+{
+}
+
+#messages
+{
+    width: 400px;
+    overflow:auto;
+    margin: 0 auto;
+}
+
+.marked_link
+{
+    font-size: 12px;
+    font-weight: bold;
+    color:Green;
+}
+
+.comment-header {
+    color: #B6DF70;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 3px 0 0;
+}
+
+.comment-date
+{
+    font-size: 11px;
+    color: #B6DF70;
+}
+.comment-body
+{
+    color: #4D613C;
+}
+
+.comment-time
+{
+}
+
+.comment-day
+{
+    font-size:11px;
+    text-align: center;
+}
+
+.comment-date-cell
+{
+    vertical-align: top;
+}
+
+.multiplier-icon
+{
+    width:30px;
+}
+
+.multiplier-icon-small
+{
+    opacity: 0.8;
+    vertical-align: sub;
+    width: 15px;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.chart 
+{
+    margin-top:30px;
+    
+    }
+

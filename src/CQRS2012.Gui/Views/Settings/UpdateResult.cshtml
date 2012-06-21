@@ -1,0 +1,37 @@
+﻿@model CQRS2012.Gui.Models.Game
+
+@{
+    ViewBag.Title = "UpdateResult2";
+}
+
+<h2>UpdateResult2</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Game</legend>
+        
+        @Html.HiddenFor(model => model.Result.Id)
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Result.HomeGoals)
+            @Html.ValidationMessageFor(model => model.Result.HomeGoals)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Result.GuestGoals)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Result.GuestGoals)
+            @Html.ValidationMessageFor(model => model.Result.GuestGoals)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

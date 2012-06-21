@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CQRS2012.Gui.Models.GameResult>
+
+<table>
+    <tr>
+        <th>
+            HomeTeam
+        </th>
+        <th>
+            GuestTeam
+        </th>
+        <th>
+            HomeGoals
+        </th>
+        <th>
+            GuestGoals
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+             @Html.DisplayFor(modelItem => item.Game.HomeTeam)
+        </td>
+        <td>
+             @Html.DisplayFor(modelItem => item.Game.GuestTeam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeGoals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GuestGoals)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "UpdateResult", new { id = item.Id }) |      
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

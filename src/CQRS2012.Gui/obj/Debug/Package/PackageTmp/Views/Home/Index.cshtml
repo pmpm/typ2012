@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CQRS2012.Gui.Models.UserTotalScores>
+@{
+    ViewBag.Title = "Home Page";
+    string cssRandomerClass = "";
+}
+<h2>
+</h2>
+@{
+    var i = 0;
+    var scoreSize = "20px";
+    var userNameSize = "20px";
+    var marginSize = "20px";
+    var prevPosition = 0;
+}
+<ul id="main-ranking">
+    @foreach (var item in Model)
+    {
+        if (prevPosition == @item.Position) { continue; }
+
+        if (prevPosition != @item.Position)
+        {
+            if (i == 0) { scoreSize = "80px"; userNameSize = "45px"; marginSize = "30px"; }
+            if (i == 1) { scoreSize = "65px"; userNameSize = "37px"; marginSize = "20px"; }
+            if (i == 2) { scoreSize = "45px"; userNameSize = "30px"; marginSize = "15px"; }
+            if (i == 3) { scoreSize = "35px"; userNameSize = "24px"; marginSize = "10px"; }
+            if (i == 4) { scoreSize = "30px"; userNameSize = "20px"; marginSize = "10px"; }
+        }
+        
+        <li style="margin-bottom:@marginSize">
+            <div>
+                <div>
+                    <span class="score" style="font-size:@scoreSize">@item.TotalScore</span>
+                </div>
+                <div>
+                    @foreach (var item2 in Model)
+                    {
+                        if (item2.Position == item.Position)
+                        {
+                            if (@item2.UserName == HttpContext.Current.User.Identity.Name)
+                            {
+                                <span class="user-name mark-me" style="font-size:@userNameSize">@item2.UserName</span>
+                            }
+                            else
+                            {
+                                cssRandomerClass = (item2.UserName == "randomer") ? "randomer-color" : "";
+                                <span class="user-name @cssRandomerClass"  style="font-size:@userNameSize">@item2.UserName</span>  
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </li>               
+
+        if (prevPosition != @item.Position)
+        {
+            i++;
+        }
+        prevPosition = @item.Position;
+    }
+</ul>

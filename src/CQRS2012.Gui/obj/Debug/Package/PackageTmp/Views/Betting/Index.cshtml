@@ -1,0 +1,162 @@
+﻿@using System.Globalization;
+@using CQRS2012.Gui.Models;
+
+@model IEnumerable<CQRS2012.Gui.ViewModels.GamesWithBetsViewModel>
+           
+@{
+    ViewBag.Title = "Betting";
+}
+
+<div>
+    <table id="gamesTable">
+        <tbody>           
+            @foreach (var game in ViewBag.NotFinishedGames)
+            {                                                      
+                <tr>
+                    <td class="date">
+                        @DateBlock(@game.GameStartDate)                       
+                    </td>
+                    <td class="team homeTeam-align">
+                        <span>@game.HomeTeam.Name</span>
+                    </td>
+                    <td class="result">
+                        @BettingField(@game)                      
+                    </td>
+                    <td class="team guestTeam-align">
+                        <span>@game.GuestTeam.Name</span>
+                    </td>
+                    <td>
+                        @if (@game.IsScoreMultiplier){ <img src="../../Content/Images/x2.png" class="multiplier-icon" title="Punkty x2" /> }
+                    </td>
+                </tr>
+            }
+
+            <tr style="height: 40px">
+            </tr>
+           
+            @foreach (var game in ViewBag.FinishedGames)
+            {                                                
+                <tr>
+                    <td class="date">
+                        @DateBlock(@game.GameStartDate)  
+                    </td>
+                    <td class="team homeTeam-align not-active">
+                        <span>@game.HomeTeam.Name</span>
+                    </td>
+                    <td class="result not-active">
+                        @ResultField(@game)
+                    </td>
+                    <td class="team guestTeam-align not-active">
+                        <span>@game.GuestTeam.Name</span>
+                    </td>
+                    <td>
+                        @if (@game.IsScoreMultiplier){ <img src="../../Content/Images/x2.png" title="Punkty x2" class="multiplier-icon not-active" /> }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@helper MonthStartedFromCapital(DateTime date)
+    {
+    string month = date.ToString("M").Split(' ')[1];
+    var monthStartedWithCapital = @month.Substring(0, 1).ToUpper() + @month.Substring(1, month.Length - 1);
+    @monthStartedWithCapital
+}
+
+@helper DateBlock(DateTime gameStartDate)
+    {
+     <div class="postdate">
+        <div class="dayOfWeek">@gameStartDate.ToString("ddd")</div>
+        <div class="day">@gameStartDate.Day</div>
+        <div class="time">@gameStartDate.ToString("t", CultureInfo.CreateSpecificCulture("pl-PL"))</div>
+        <div class="month">@MonthStartedFromCapital(gameStartDate)</div>
+    </div>
+}
+
+@helper BettingField(Game game)
+{
+    if (@ViewBag.CanBetGame[@game])
+    { 
+        <div class="game-not-finished">
+            <table class="before-finished">
+                <tr>
+                    <td>
+                        @if (@ViewBag.BetFor[@game] != null)
+                        {                                      
+                            <span id="@game.Id" class="inline-edit">@ViewBag.BetFor[@game].Result.HomeGoals:@ViewBag.BetFor[@game].Result.GuestGoals</span>
+                        }
+                        else
+                        {
+                            <span  id="@game.Id" class="questionMark inline-edit">?:?</span>                                        
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div> 
+    }
+    else
+    {
+        <div class="bet-blocked">
+            <table class="before-finished">
+                <tr>
+                    <td>
+                        @if (@ViewBag.BetFor[@game] != null)
+                        {
+                                                                                   
+                            <span title="Spóźniłeś się">@ViewBag.BetFor[@game].Result.HomeGoals:@ViewBag.BetFor[@game].Result.GuestGoals</span>
+                        }
+                        else
+                        {
+                            <span title="Spóźniłeś się" class="questionMark">?:?</span>                                        
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div> 
+    }
+}
+
+@helper ResultField(Game game)
+{
+    <div class="game-finished">
+                            <table>
+                                <tr>
+                                    <th rowspan="2">
+                                        @if (@ViewBag.BetFor[@game] != null)
+                                        {  
+                                            <span title="Punkty">@ViewBag.BetFor[@game].Score</span>
+                                        }
+                                        else
+                                        {
+                                            <span title="Punkty">0</span>
+                                        }
+                                    </th>
+                                    <td>
+                                        @if (@game.Result != null)
+                                        {  
+                                            <span title="Wynik meczu">@game.Result.HomeGoals:@game.Result.GuestGoals</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="questionMark">?:?</span>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @if (@ViewBag.BetFor[@game] != null)
+                                        {  
+                                            <span title="Twój typ">@ViewBag.BetFor[@game].Result.HomeGoals:@ViewBag.BetFor[@game].Result.GuestGoals</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="questionMark">?:?</span>                                        
+                                        }
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+}

@@ -1,0 +1,25 @@
+﻿@model CQRS2012.Gui.Models.UserModel
+@{
+    ViewBag.Title = "Block";
+}
+<h2>
+    Block</h2>
+<h3>
+    Are you sure you want to change status of <strong>@Html.DisplayFor(model => model.UserName)</strong>
+    ?</h3>
+@using (Html.BeginForm())
+{
+    <p>
+        @if (Model.IsApproved)
+        {            
+            <input type="submit" value="Block" />        
+        }
+        else
+        {
+            <input type="submit" value="Unblock" />
+        }
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

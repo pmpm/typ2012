@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CQRS2012.Gui.Models.UserModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="content-center">
+<h2>Index</h2>
+
+@Html.ActionLink("Utwórz nowego użytkownika", "CreateUser")
+<br />
+@Html.ActionLink("Utwórz użytkownika ze strategią na chybił trafił", "CreateRabbitUser")
+<br />
+<br />
+
+<table>
+    <tr>
+        <th>
+            UserName
+        </th> 
+        <th>
+            Email
+        </th>        
+        <th>
+            IsOnline
+        </th>
+        <th>
+            IsApproved
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.IsOnline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+         @if (item.IsApproved)
+         {            
+             @Html.ActionLink("Block", "BlockUnblock", new { userName = item.UserName })         
+         }
+         else
+         {
+             @Html.ActionLink("Unblock", "BlockUnblock", new { userName = item.UserName })  
+         }
+
+           | @Html.ActionLink("Reset password", "ResetPassword", new { userName = item.UserName })          
+        </td>
+        
+    </tr>
+}
+
+</table>
+</div>

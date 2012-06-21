@@ -1,0 +1,63 @@
+﻿@model CQRS2012.Gui.Models.Game
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@{Html.RenderPartial("GameForm");}
+
+@*
+@model CQRS2012.Gui.Models.Game
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Game</legend>
+
+            @Html.HiddenFor(model => model.Result.Id)
+       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomeTeam.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HomeTeam.Name)
+            @Html.ValidationMessageFor(model => model.HomeTeam.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GuestTeam.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GuestTeam.Name)
+            @Html.ValidationMessageFor(model => model.GuestTeam.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GameStartDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GameStartDate)
+            @Html.ValidationMessageFor(model => model.GameStartDate)
+        </div>       
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+*@

@@ -1,0 +1,42 @@
+﻿@model CQRS2012.Gui.Models.Game
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Game</legend>
+         <div class="editor-label">
+            @Html.LabelFor(model => model.GameStartDate)
+        </div>
+        <div id="datepicker" class="hasDatepicker"></div>
+        <div class="editor-field">
+           @Html.TextBoxFor(model => model.GameStartDate, new { @class = "showDateTimePicker" }) 
+           @Html.ValidationMessageFor(model => model.GameStartDate) 
+        </div>
+        <table class="teams-block">
+            <td class="hometeam-block">
+                <div class="editor-field">
+                    @Html.DropDownList("HomeTeam")                
+                </div>
+            </td>
+            <td class="guestteam-block">
+                <div class="editor-field">
+                    @Html.DropDownList("GuestTeam")
+                    @* @Html.ValidationMessageFor(model => model.GuestTeam) *@
+                </div>
+            </td>
+        </table>
+        <div>
+        @Html.CheckBoxFor(model=>model.IsScoreMultiplier)
+        <span>Punkty x2</span>
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

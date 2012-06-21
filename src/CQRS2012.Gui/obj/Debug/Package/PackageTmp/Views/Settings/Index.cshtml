@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CQRS2012.Gui.ViewModels.GamesByDateViewModel>
+@{
+    ViewBag.Title = "Settings";
+}
+<h2>
+    Ustawienia</h2>
+<p>@Html.ActionLink("Utwórz drużyne", "CreateTeam")</p>
+<p>@Html.ActionLink("Utwórz mecz", "Create")</p>
+
+<div>
+    @foreach (var item in Model)
+    {    
+        <div class="games-by-date-block">
+            <div class="games-date-block">
+                 @item.GamesDate.ToString("D"), godz.
+                  @foreach (var game in item.Games)
+                  {
+                      <span>@game.GameStartDate.ToString("t")</span>                     
+                  }
+            </div>
+            <table class="games-table">
+                @foreach (var game in item.Games)
+                {                   
+                    <tr>
+                        <td class="hometeam-block">
+                            @Html.DisplayFor(modelItem => game.HomeTeam.Name)
+                            <img src="@game.HomeTeam.PathToFlag" />
+                        </td>
+                        <td  class="result-block">
+                          @if (game.Result != null)
+                          {  
+                            @Html.DisplayFor(modelItem => game.Result.HomeGoals)
+                            <span>:</span>
+                            @Html.DisplayFor(modelItem => game.Result.GuestGoals)
+                          }
+                          else
+                          {
+                               <span>?</span>
+                              <span>:</span>
+                               <span>?</span>
+                          }
+                            
+                        </td>
+                        <td  class="guestteam-block">
+                            <img src="@game.GuestTeam.PathToFlag" />
+                            @Html.DisplayFor(modelItem => game.GuestTeam.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edytuj", "Edit", new { id = game.Id })
+                            @if (game.IsFinished)
+                            {            
+                                @Html.ActionLink("Zmień wynik", "UpdateResult", new { id = game.Id })               
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Zakończ mecz", "Finish", new { id = game.Id })      
+                            }
+                            @Html.ActionLink("Usuń", "Delete", new { id = game.Id })
+                        </td>
+                    </tr> 
+                }
+            </table>
+        </div>    
+    }
+</div>

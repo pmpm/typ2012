@@ -1,0 +1,18 @@
+﻿@model CQRS2012.Gui.Models.Game
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete game <strong>@Html.DisplayFor(model => model.HomeTeam.Name) -  @Html.DisplayFor(model => model.GuestTeam.Name)</strong> ?</h3>
+
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

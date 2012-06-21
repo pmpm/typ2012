@@ -1,0 +1,11 @@
+﻿@model CQRS2012.Gui.Models.Bet
+
+@{
+    ViewBag.Title = "Create";
+    ViewBag.HomeTeamFlagUrl = Model.Game.HomeTeam.PathToFlag;
+    ViewBag.GuestTeamFlagUrl = Model.Game.GuestTeam.PathToFlag;
+}
+
+<h2>Typuj</h2>
+
+@{Html.RenderPartial("BetForm");}
